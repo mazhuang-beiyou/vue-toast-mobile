@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>toaster</title>
+</head>
+<style>
+    a {
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <a @click="pop">
+            点击弹出toast{{message}}
+        </a>
+    </div>
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../dist/vue-toast.js"></script>
+<script>
+    Vue.use(window.VueToast.default);
+    new Vue({
+        el: '#app',
+        data: {
+            message: '12',
+            toastOptions: {
+                duration: 24323423,
+            }
+        },
+        methods: {
+            pop() {
+                this.$toast.error("你好", this.toastOptions)
+            }
+        }
+    })
+</script>
+
+</html>
